@@ -21,6 +21,7 @@ export enum ChainId {
   GNOSIS = 100,
   MOONBEAM = 1284,
   BSC = 56,
+  HARMONY = 1666600000,
 }
 
 // WIP: Gnosis, Moonbeam
@@ -42,6 +43,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.CELO_ALFAJORES,
   ChainId.CELO,
   ChainId.BSC,
+  ChainId.HARMONY
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -117,6 +119,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.GNOSIS;
     case 1284:
       return ChainId.MOONBEAM;
+    case 1666600000:
+      return ChainId.HARMONY;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -142,6 +146,7 @@ export enum ChainName {
   GNOSIS = 'gnosis-mainnet',
   MOONBEAM = 'moonbeam-mainnet',
   BSC = 'bsc-mainnet',
+  HARMONY = 'harmony'
 }
 
 
@@ -153,6 +158,7 @@ export enum NativeCurrencyName {
   GNOSIS = 'XDAI',
   MOONBEAM = 'GLMR',
   BNB = "BNB",
+  HARMONY = "ONE"
 }
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   [ChainId.MAINNET]: [
@@ -253,6 +259,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.GNOSIS]: NativeCurrencyName.GNOSIS,
   [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
   [ChainId.BSC]: NativeCurrencyName.BNB,
+  [ChainId.HARMONY]: NativeCurrencyName.HARMONY,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -295,6 +302,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.GNOSIS;
     case 1284:
       return ChainName.MOONBEAM;
+    case 1666600000:
+      return ChainName.HARMONY;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -340,6 +349,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES!;
     case ChainId.BSC:
       return process.env.JSON_RPC_PROVIDER_BSC!;
+    case ChainId.HARMONY:
+      return process.env.JSON_RPC_PROVIDER_HARMONY!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -394,6 +405,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     18,
     'WBNB',
     'Wrapped BNB'
+  ),
+  [ChainId.HARMONY]: new Token(
+    ChainId.HARMONY,
+    '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+    18,
+    'WONE',
+    'Wrapped ONE'
   ),
   [ChainId.OPTIMISM]: new Token(
     ChainId.OPTIMISM,

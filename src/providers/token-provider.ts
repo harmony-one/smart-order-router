@@ -636,6 +636,14 @@ export const WBTC_MOONBEAM = new Token(
   'Wrapped BTC bridged using Multichain'
 );
 
+export const HARMONY_BRIDGED_BUSD = new Token(
+  ChainId.HARMONY,
+  '0xFeee03BFBAA49dc8d11DDAab8592546018dfb709',
+  18,
+  '1BUSD',
+  'USD//C'
+)
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -771,10 +779,8 @@ export class TokenProvider implements ITokenProvider {
       }
 
       log.info(
-        `Got token symbol and decimals for ${
-          Object.values(addressToToken).length
-        } out of ${addresses.length} tokens on-chain ${
-          providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
+        `Got token symbol and decimals for ${Object.values(addressToToken).length
+        } out of ${addresses.length} tokens on-chain ${providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
         }`
       );
     }
@@ -832,7 +838,7 @@ export const DAI_ON = (chainId: ChainId): Token => {
     case ChainId.BSC:
       return DAI_BSC;
     default:
-      throw new Error(`Chain id: ${chainId} not supported`);
+      throw new Error(`DAI_ON Chain id: ${chainId} not supported`);
   }
 };
 
@@ -861,7 +867,7 @@ export const USDT_ON = (chainId: ChainId): Token => {
     case ChainId.BSC:
       return USDT_BSC;
     default:
-      throw new Error(`Chain id: ${chainId} not supported`);
+      throw new Error(`USDT_ON Chain id: ${chainId} not supported`);
   }
 };
 
@@ -902,7 +908,7 @@ export const USDC_ON = (chainId: ChainId): Token => {
     case ChainId.BSC:
       return USDC_BSC;
     default:
-      throw new Error(`Chain id: ${chainId} not supported`);
+      throw new Error(`USDC_ON Chain id: ${chainId} not supported`);
   }
 };
 

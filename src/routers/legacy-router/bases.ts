@@ -6,6 +6,7 @@ import {
   BUSD_BSC,
   DAI_BSC,
   DAI_MAINNET,
+  HARMONY_BRIDGED_BUSD,
   ITokenProvider,
   USDC_BSC,
   USDC_MAINNET,
@@ -65,6 +66,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
       USDC_BSC,
       USDT_BSC,
       BTC_BSC,
+    ],
+    [ChainId.HARMONY]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.HARMONY]!,
+      HARMONY_BRIDGED_BUSD
     ],
   };
 };
