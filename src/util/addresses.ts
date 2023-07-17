@@ -16,11 +16,11 @@ const ARBITRUM_GOERLI_MULTICALL_ADDRESS =
   '0x8260CB40247290317a4c062F3542622367F206Ee';
 
 const HARMONY_V3_CORE_FACTORY_ADDRESSES =
-  '0x75D91aeFE657Dce07A711586694CAF99E573F93b';
+  '0xB6c45134112d94fa50D94DfA9e2b3BB5743A0B8f';
 const HARMONY_QUOTER_ADDRESSES =
-  '0x8148a1cc13D264715ac3C5Ac7a5c67Ad8Cb156F4';
+  '0xbE2fc611B5B829a65019eB12180042f21EBe31ca';
 const HARMONY_MULTICALL_ADDRESS =
-  '0xFd7a337d7F13770dc32df12Cfe64711EBF0b0Ca0';
+  '0xE7a2358c3bf4a24E11E98D1d92910DE007033712';
 
 const OPTIMISM_GOERLI_V3_CORE_FACTORY_ADDRESSES =
   '0xB656dA17129e7EB733A557f4EBc57B76CFbB5d10';
@@ -132,7 +132,6 @@ export const WETH9: {
     | ChainId.GNOSIS
     | ChainId.MOONBEAM
     | ChainId.BSC
-    | ChainId.HARMONY
   >]: Token;
 } = {
   [ChainId.MAINNET]: new Token(
@@ -219,11 +218,11 @@ export const WETH9: {
     'WETH',
     'Wrapped Ether'
   ),
-  // [ChainId.HARMONY]: new Token(
-  //   ChainId.HARMONY,
-  //   '0xe39Ab88f8A4777030A534146A9Ca3B52bd5D43A3',
-  //   18,
-  //   'WONE',
-  //   'Wrapped One'
-  // ),
+  [ChainId.HARMONY]: new Token(
+    ChainId.HARMONY,
+    '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+    18,
+    'WONE',
+    'Wrapped One'
+  ),
 };
